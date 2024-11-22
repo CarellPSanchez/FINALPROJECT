@@ -52,11 +52,18 @@
             bottom: 0;
             width: 100%;
         }
-        img {
-			width: 25%;
-			height: auto;
-			margin-bottom: 100px;
-			float: left;
+         img {
+	    width: 25%;
+	    height: auto;
+	    margin-bottom: 100px;
+	    float: left;
+	    transition-property: transform;
+	    transition-duration: 2s;
+	    transition-timing-function: ease-in-out;
+		}
+	 img:hover {
+	    transform: matrix(2, 0, 0, 2, 290,-100);
+			
 		}
     </style>
 </head>
