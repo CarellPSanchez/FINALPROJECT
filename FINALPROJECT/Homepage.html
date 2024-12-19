@@ -29,25 +29,33 @@
             margin: 0 15px;
             text-decoration: none;
         }
+		.sprite {
+			background: url('img/watersprite.png') no-repeat -30px -32px;
+			width: 146px;
+			height: 146px;
+			transform: scale(0.5,0.5);
+			float: left;
+			}
         section {
             padding: 20px;
             text-align: center;
         }
-		    video {
-			      padding: 20px;
+		video {
+			padding: 20px;
             text-align: center;
-			      float: right;
-			      width: 20%;
-			      height: auto;
+			float: right;
+			width: 20%;
+			height: auto;
 			
-		    }
+		}
 
-		    aside {
-			      padding: 20px;
+		aside {
+			padding: 20px;
             text-align: center;
 	
-		    }
+		}
         footer {
+			position: fixed;
             background-color: #333;
             color: #fff;
             text-align: center;
@@ -55,42 +63,28 @@
             position: absolute;
             bottom: 0;
             width: 100%;
-		    }
-		    p {
-			      text-align: center;
+		}
+		p{
+			text-align: center;
         }
-		    img {
-			      width: 20%;
-			      height: auto;
-			      float: left;
-		    }
-		    a:link {
-            background-color: #444;
-            text-decoration: none;
-            border: solid black 1px;
-            padding: 1px;
-        }
-        a:visited {
-            background-color: #cdc3c0;
-        }
-        a:hover {
-            background-color:black;
-        }
-        a:active {
-            background-color: #4d3c37;
-        }
-        a.one:link {
-            background-color: white;
-            color: black;
-        }
-        a.one:hover {
-            background-color:#502e1c;
-        }
+		img {
+			width: 20%;
+			height: auto;
+			float: left;
+		}
+		a.one:hover{
+			color: blue;
+		}
+		a:hover {
+			background-color: #333;
+			}
+		
     </style>
 </head>
 <body>
 
     <header>
+		<div class="sprite"></div>
         <h1>Flowing Towards the Future: Ensuring Clean Water and Sanitation for All</h1>
 		<h2>United Nations Sustainable Development Goal #6</h2>
     </header>
@@ -98,10 +92,11 @@
     <nav>
         <a href="Homepage.html">Home</a>
         <a href="Aboutpage.html">About</a>
-        
+        <a href="Targetspage.html">Targets</a>
     </nav>
-
+		
     <section>
+		
         <h2>Background information</h2>
         <p>Sustainable Development Goal 6 (SDG 6) aims to ensure the availability and sustainable management of clean water and sanitation for all by 2030. It focuses on providing safe drinking water, improving sanitation facilities, and promoting hygiene practices, particularly in vulnerable communities. SDG 6 also emphasizes the sustainable use and management of water resources, such as reducing water scarcity and pollution. The goal promotes international cooperation to support water and sanitation projects, particularly in developing countries. Achieving SDG 6 is crucial for improving health, reducing poverty, and protecting ecosystems.</p>
 		<aside><img src="img/WaterGlass.jpg" alt="Glass of Water"></aside>
@@ -109,7 +104,8 @@
 			<source src="audioORvideo/waterpour.ogg" type="video/ogg">
 			<source src="audioORvideo/waterpour.mp4" type="video/mp4">
 		</video>
-      <p><b><a class="one" href=# >Click here to learn more</a></p>
+		<p><b><a class="one" href="https://www.waterforpeople.org/sdg6/" >For more info click here</a></p>
+
     </section>
 
     <footer>
