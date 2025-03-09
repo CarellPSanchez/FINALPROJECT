@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            background-color: #444;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        section {
+            padding: 20px;
+            text-align: center;
+        }
+		video {
+			padding: 20px;
+            text-align: center;
+			float: right;
+			width: 20%;
+			height: auto;
+			
+		}
+
+		aside {
+			padding: 20px;
+            text-align: center;
+	
+		}
+        footer {
+			position: fixed;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+		}
+		p{
+			text-align: center;
+        }
+		img {
+			width: 20%;
+			height: auto;
+			float: left;
+		}
+		.quiz-container {
+            width: 50%;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .question {
+            font-size: 20px;
+        }
+        .options button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .correct {
+            background-color: #28a745;
+            color: white;
+        }
+        .incorrect {
+            background-color: #dc3545;
+            color: white;
+        }
+        .hidden {
+            display: none;
+        }
+		
+    </style>
+</head>
+<body>
+
+    <header>
+		<div class="sprite"></div>
+        <h1>Interactive Quiz</h1>
+		<h2>United Nations Sustainable Development Goal #6</h2>
+    </header>
+
+    <nav>
+        <a href="Homepage.html">Home</a>
+        <a href="Aboutpage.html">About</a>
+        <a href="Targetspage.html">Targets</a>
+		<a href="Quizpage.html">Quiz</a>
+    </nav>
+	
+	<div class="quiz-container">
+        <h2>SDG #6 Quiz</h2>
+        <div id="quiz">
+            <p id="question" class="question"></p>
+            <div id="options" class="options"></div>
+            <button id="prevBtn" class="hidden">Previous</button>
+            <button id="nextBtn" class="hidden">Next</button>
+            <button id="submitBtn" class="hidden">Submit</button>
+        </div>
+        <div id="result" class="hidden">
+            <h3>Your Score: <span id="score"></span></h3>
+            <p id="finalFeedback"></p>
+            <button onclick="restartQuiz()">Restart Quiz</button>
+        </div>
+    </div>
+	
+	<script>
+        const quizData = [
+            { question: "What is the main goal of SDG 6?", options: ["Ensure clean energy", "Sustainable water and sanitation", "End hunger", "Economic growth"], answer: 1 },
+            { question: "How many people lack access to safe drinking water?", options: ["500 million", "1 billion", "2 billion", "3 billion"], answer: 2 },
+            { question: "Which is a key challenge in achieving SDG 6?", options: ["Water pollution", "Deforestation", "Declining fish", "Air pollution"], answer: 0 },
+            { question: "What percentage of wastewater is untreated globally?", options: ["20%", "40%", "60%", "80%"], answer: 3 },
+            { question: "Which organization monitors global water issues?", options: ["WHO", "NASA", "World Bank", "IMF"], answer: 0 }
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let selectedAnswers = new Array(quizData.length).fill(null);
+
+        function loadQuestion() {
+            const currentQuestion = quizData[currentQuestionIndex];
+            document.getElementById("question").textContent = currentQuestion.question;
+            const optionsEl = document.getElementById("options");
+            optionsEl.innerHTML = "";
+
+            for (let i = 0; i < currentQuestion.options.length; i++) {
+                const button = document.createElement("button");
+                button.textContent = currentQuestion.options[i];
+                button.onclick = () => selectAnswer(i, button);
+                if (selectedAnswers[currentQuestionIndex] !== null) {
+                    button.disabled = true;
+                }
+                optionsEl.appendChild(button);
+            }
+
+            document.getElementById("prevBtn").classList.toggle("hidden", currentQuestionIndex === 0);
+            document.getElementById("nextBtn").classList.toggle("hidden", currentQuestionIndex === quizData.length - 1);
+            document.getElementById("submitBtn").classList.toggle("hidden", currentQuestionIndex !== quizData.length - 1);
+        }
+
+        function selectAnswer(selectedIndex, button) {
+            selectedAnswers[currentQuestionIndex] = selectedIndex;
+            const correctIndex = quizData[currentQuestionIndex].answer;
+            const buttons = document.querySelectorAll("#options button");
+
+            for (let i = 0; i < buttons.length; i++) {
+                if (i === correctIndex) {
+                    buttons[i].classList.add("correct");
+                }
+                if (i === selectedIndex && selectedIndex !== correctIndex) {
+                    buttons[i].classList.add("incorrect");
+                }
+                buttons[i].disabled = true;
+            }
+        }
+
+        document.getElementById("nextBtn").addEventListener("click", () => {
+            if (currentQuestionIndex < quizData.length - 1) {
+                currentQuestionIndex++;
+                loadQuestion();
+            }
+        });
+
+        document.getElementById("prevBtn").addEventListener("click", () => {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                loadQuestion();
+            }
+        });
+
+        document.getElementById("submitBtn").addEventListener("click", () => {
+            score = selectedAnswers.filter((answer, index) => answer === quizData[index].answer).length;
+            showResult();
+        });
+
+        function showResult() {
+            document.getElementById("quiz").classList.add("hidden");
+            document.getElementById("result").classList.remove("hidden");
+            document.getElementById("score").textContent = `${score} / ${quizData.length}`;
+            document.getElementById("finalFeedback").textContent = getFeedback(score);
+        }
+
+        function getFeedback(score) {
+            switch (true) {
+                case (score === quizData.length):
+                    return "Excellent! You truly understand SDG 6.";
+                case (score >= quizData.length * 0.7):
+                    return "Great job! You have a strong understanding of SDG 6.";
+                case (score >= quizData.length * 0.4):
+                    return "Not bad! Keep learning about SDG 6.";
+                default:
+                    return "Keep trying! Understanding SDG 6 is important.";
+            }
+        }
+
+        function restartQuiz() {
+            currentQuestionIndex = 0;
+            score = 0;
+            selectedAnswers.fill(null);
+            document.getElementById("result").classList.add("hidden");
+            document.getElementById("quiz").classList.remove("hidden");
+            loadQuestion();
+        }
+
+        loadQuestion();
+    </script>
+		
+    
+    <footer>
+        <p>&copy; 2024 Carell Sanchez</p>
+    </footer>
+
+</body>
+</html>

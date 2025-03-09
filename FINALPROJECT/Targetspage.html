@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>About Us</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            background-color: #444;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        section {
+            padding: 20px;
+            max-width: 900px;
+            margin: auto;
+            text-align: left;
+        }
+        h2 {
+            color: #333;
+			width: fit-content;
+			text-align: center;
+        }
+		p[style="greyfont"] {
+			color: grey;
+		}
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #555;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+		img {
+			width: 15%;
+			height: auto;
+			border: solid black;
+			transition-property: transform;
+			transition-duration: 2s;
+			transition-timing-function: ease-in-out;
+			float: left;
+		}
+		img:hover {
+			transform: matrix(2, 0, 0, 2, 290,100);
+		}
+		}
+		a:hover {
+			background-color: #333;
+		}
+		.sprite {
+			 background: url('img/waterdropanimation.jpg') no-repeat 0 0;
+			 width: 102px;
+			 height: 140px;
+			 animation: varName 1s steps(5) infinite;
+			 padding: 10px;
+		}
+		@keyframes varName{
+			from {
+				background-position-x:0px;
+			}
+			to {
+			background-position-x:-594px;
+			}
+		}
+		audio{
+			float: right;
+			transform: translate(0px,-120px);
+			padding: 20px;
+			background-image: url('img/waterdrop.jpg');
+			background-size:cover;
+		}
+		h2:nth-child(3) {
+			background-color: grey;
+		}
+		h2:nth-child(1) {
+			background-color: #F0EABE;
+		}
+		a:hover {
+			background-color: #333;
+		}
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Targets</h1>
+    </header>
+
+    <nav>
+        <a href="Homepage.html">Home</a>
+        <a href="Aboutpage.html">About</a>
+		<a href="Targetspage.html">Targets</a>
+		<a href="Quizpage.html">Quiz</a>
+    </nav>
+	<aside><img src="img/waterdrink.jpg" alt="Happy child drinking water"></aside>
+
+    <section>
+        <h2>Main Targets by 2030</h2>
+		<ul>
+			<li><strong>Universal and Equitable Access to Safe Water:</strong> By <em>2030</em>, ensure universal and equitable access to safe and affordable drinking water for all.</li>
+			<li><strong>Access to Adequate and Equitable Sanitation and Hygiene:</strong> By <em>2030</em>, achieve access to adequate and equitable sanitation and hygiene for all, and end open defecation, paying special attention to the needs of women, girls, and vulnerable groups.</li>
+			<li><strong>Improve Water Quality:</strong> By <em>2030</em>, improve water quality by reducing pollution, eliminating dumping, and minimizing the release of hazardous chemicals, halving untreated wastewater, and increasing recycling and safe water reuse globally.</li>
+			<li><strong>Increase Water-Use Efficiency and Address Water Scarcity:</strong> By <em>2030</em>, substantially increase water-use efficiency and ensure sustainable freshwater supply to address water scarcity.</li>
+			<li><strong>Protect and Restore Water-Related Ecosystems:</strong> By <em>2030</em>, protect and restore water-related ecosystems, including mountains, forests, wetlands, rivers, aquifers, and lakes.</li>
+		</ul>
+		<h2>Importance</h2>
+		<p style="greyfont">SDG 6 is crucial because access to clean water is essential for life, ensuring safe and affordable drinking water for all. Proper sanitation systems help prevent the spread of diseases like cholera, dysentery, and diarrhea, saving millions of lives annually. It also promotes gender equality, as women and girls often bear the burden of fetching water, limiting their opportunities for education and employment. Clean water and efficient water management are vital for sustainable agriculture, ensuring food security worldwide. Additionally, it protects freshwater ecosystems, preserving biodiversity and environmental health. By addressing water scarcity, SDG 6 promotes conservation practices to combat the impacts of climate change and population growth. Access to clean water and sanitation enhances economic growth by improving productivity and reducing health-related absences. Finally, sustainable water management builds resilience to climate challenges, helping communities adapt to floods, droughts, and other water-related risks.</p>
+		<aside class="sprite"></aside>
+		<audio controls="controls">
+			<source src="audioORvideo/waterdrops.ogg" type="audio/ogg">
+			<source src="audioORvideo/waterdrops.mp3" type="audio/mpeg">
+		</audio>
+    </section>
+	<footer>
+        <p>&copy; 2024 Carell Sanchez</p>
+    </footer>
+    
+
+</body>
+</html>
