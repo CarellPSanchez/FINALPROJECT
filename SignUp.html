@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SDG#6 Campaign Sign Up</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+		<div class="sprite"></div>
+        <h1>Flowing Towards the Future: Ensuring Clean Water and Sanitation for All</h1>
+		<h2>United Nations Sustainable Development Goal #6</h2>
+    </header>
+
+    <nav>
+        <a href="Homepage.html">Home</a>
+        <a href="Aboutpage.html">About</a>
+        <a href="Targetspage.html">Targets</a>
+		<a href="Quizpage.html">Quiz</a>
+		<a href="SignUp.html">Sign Up!</a>
+    </nav>
+
+  <main>
+    <form id="signupForm">
+      <label>First Name * <input type="text" id="firstName" /></label><span class="error" id="errFirstName"></span>
+      <label>Last Name * <input type="text" id="lastName" /></label><span class="error" id="errLastName"></span>
+
+      <label>Sex * </label>
+      <label><input type="radio" name="sex" value="Male" /> Male</label>
+      <label><input type="radio" name="sex" value="Female" /> Female</label>
+      <label><input type="radio" name="sex" value="Prefer not to say" /> Prefer not to say</label>
+      <span class="error" id="errSex"></span>
+
+      <label>Email * <input type="email" id="email" /></label><span class="error" id="errEmail"></span>
+      <label>Password * <input type="password" id="password" /></label><span class="error" id="errPassword"></span>
+      <label>Contact Number <input type="text" id="contact" /></label>
+      <label>Why you’re supporting our campaign * 
+        <textarea id="supportReason"></textarea>
+      </label><span class="error" id="errReason"></span>
+
+      <button type="submit">Join the Movement</button>
+    </form>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

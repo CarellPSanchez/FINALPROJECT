@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your Profile</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+		<div class="sprite"></div>
+        <h1>Welcome to the Program!</h1>
+		<h2>United Nations Sustainable Development Goal #6</h2>
+    </header>
+
+    <nav>
+        <a href="Homepage.html">Home</a>
+        <a href="Aboutpage.html">About</a>
+        <a href="Targetspage.html">Targets</a>
+		<a href="Quizpage.html">Quiz</a>
+		<a href="SignUp.html">Sign Up!</a>
+    </nav>
+  <main>
+    <p><strong>First Name:</strong> <span id="pFirstName"></span></p>
+    <p><strong>Last Name:</strong> <span id="pLastName"></span></p>
+    <p><strong>Email:</strong> <span id="pEmail"></span></p>
+    <p><strong>Sex:</strong> <span id="pSex"></span></p>
+    <p><strong>Why I Support This Campaign:</strong></p>
+    <p id="pReason"></p>
+  </main>
+  <footer>
+        <p>&copy; 2024 Carell Sanchez</p>
+   </footer>
+  <script>
+    document.getElementById('pFirstName').textContent = localStorage.getItem('firstName');
+    document.getElementById('pLastName').textContent = localStorage.getItem('lastName');
+    document.getElementById('pEmail').textContent = localStorage.getItem('email');
+    document.getElementById('pSex').textContent = localStorage.getItem('sex');
+    document.getElementById('pReason').textContent = localStorage.getItem('reason');
+  </script>
+</body>
+</html>
